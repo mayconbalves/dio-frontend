@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
 import * as S from './styled'
 
 const Home = () => {
@@ -8,10 +6,10 @@ const Home = () => {
     <S.Container>
       <S.Title>Digite seu nome</S.Title>
       <S.Form>
-        <S.Input />
-        <Link to='/protest'>
+        <S.Input placeholder="Nome de usuário"/>
+        <S.Button to='/protest'>
           Acesse o sistema
-        </Link>
+        </S.Button>
       </S.Form>
     </S.Container>
   )
