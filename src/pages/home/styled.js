@@ -18,16 +18,6 @@ export const Title = styled.h1`
   color: #00ced1;
 `
 
-export const Input = styled.input`
-  padding: 5px 10px;
-  margin: 10px;
-
-  &:focus {
-    border-color: transparent;
-    outline: 2px solid #00ced1;
-  }
-`
-
 export const Button = styled(Link)`
   background-color: #00ced1;
   color: #fff;
