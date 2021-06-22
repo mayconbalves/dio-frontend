@@ -6,11 +6,16 @@ export const Main = styled.main`
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 80vh;
 `
 
 export const Form = styled.form`
   display: grid;
+`
+
+export const Title = styled.h1`
+  color: #00ced1;
+  text-align: center;
+  font-size: 2.5rem;
 `
 
 export const Button = styled.button`
