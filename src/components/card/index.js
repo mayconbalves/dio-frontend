@@ -1,10 +1,13 @@
 import React from 'react'
+import * as S from './styled'
 
 const Card = () => {
   return (
-    <div>
+    <S.Container>
       <h1>card</h1>
-    </div>
+      <S.Like />
+      <S.Dislike />
+    </S.Container>
   )
 }
 
