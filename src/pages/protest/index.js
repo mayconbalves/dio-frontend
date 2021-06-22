@@ -2,6 +2,7 @@ import React from 'react'
 import Container from 'components/container'
 import Input from 'components/input'
 import Breadcrumb from 'components/breadcrumb'
+import Card from 'components/card'
 import * as S from './styled'
 
 const Protest = () => {
@@ -14,6 +15,9 @@ const Protest = () => {
           <Input placeholder="Enviar protesto" />
           <S.Button type='button'>Enviar</S.Button>
         </S.Form>
+        <S.CardContainer>
+          <Card />
+        </S.CardContainer>
       </S.Main>
     </Container>
   )

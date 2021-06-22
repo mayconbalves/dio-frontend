@@ -31,3 +31,10 @@ export const Button = styled.button`
   padding: 10px;
   width: 120px;
 `
+
+export const CardContainer = styled.div`
+  border: 1px solid #fff;
+  margin: 10px auto;
+  width: 90%;
+`
+
