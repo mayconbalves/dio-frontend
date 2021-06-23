@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Input from 'components/input'
 import Container from 'components/container'
+import Button from 'components/button'
 import * as S from './styled'
 
 const Home = () => {
@@ -25,11 +26,11 @@ const Home = () => {
             placeholder="Nome de usuário"
             value={values.username}
           />
-          <S.Button type="button" disabled={values.username.length < 1}>
+          <Button type="button" disabled={values.username.length < 1}>
             <S.Redirect to='/protest' disabled={values.username.length < 1}>
               Acesse o sistema
             </S.Redirect>
-          </S.Button>
+          </Button>
         </S.Form>
       </S.Main>
     </Container>
