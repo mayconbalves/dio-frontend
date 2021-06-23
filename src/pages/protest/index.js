@@ -15,9 +15,7 @@ const Protest = () => {
           <Input placeholder="Enviar protesto" />
           <S.Button type='button'>Enviar</S.Button>
         </S.Form>
-        <S.CardContainer>
-          <Card />
-        </S.CardContainer>
+        <Card />
       </S.Main>
     </Container>
   )
