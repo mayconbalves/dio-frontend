@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Button from './'
+import * as S from './styled'
 
 export default {
   component: Button,
@@ -9,15 +10,34 @@ export default {
 }
 
 export const ButtonData  = {
+  backgroundColor: '#00ced1',
   children: 'default',
   disabled: false,
   type: 'button'
 }
 
 export const Default = () =>
-  <Button
+  <S.Button
+    backgroundColor={ButtonData.backgroundColor}
     disabled={ButtonData.disabled}
     type={ButtonData.type}
   >
     {ButtonData.children}
-  </Button>
+  </S.Button>
+
+export const Disabled = () =>
+  <S.Button
+    disabled={true}
+    type={ButtonData.type}
+  >
+    {ButtonData.children}
+  </S.Button>
+
+export const BackgroundColor = () =>
+  <S.Button
+    disabled={ButtonData.disabled}
+    type={ButtonData.type}
+    backgroundColor="#000"
+  >
+    {ButtonData.children}
+  </S.Button>

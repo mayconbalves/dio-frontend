@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  background-color: ${props => props.disabled ? 'gray' : '#00ced1' };
+  color: #fff;
+  background-color: ${props => props.disabled
+    ? 'gray'
+    : `${props.backgroundColor}`};
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer' };
   display: flex;
   justify-content: center;

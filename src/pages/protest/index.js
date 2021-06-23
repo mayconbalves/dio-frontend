@@ -3,6 +3,7 @@ import Container from 'components/container'
 import Input from 'components/input'
 import Breadcrumb from 'components/breadcrumb'
 import Card from 'components/card'
+import Button from 'components/button'
 import * as S from './styled'
 
 const Protest = () => {
@@ -32,7 +33,13 @@ const Protest = () => {
             placeholder="Enviar protesto"
             value={values.protest}
           />
-          <S.Button onClick={submitForm} type='button'>Enviar</S.Button>
+          <Button
+            backgroundColor="#00ced1"
+            onClick={submitForm}
+            type="button"
+          >
+            Enviar
+          </Button>
         </S.Form>
         <Card />
       </S.Main>

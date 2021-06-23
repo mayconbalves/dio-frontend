@@ -26,7 +26,11 @@ const Home = () => {
             placeholder="Nome de usuário"
             value={values.username}
           />
-          <Button type="button" disabled={values.username.length < 1}>
+          <Button
+            backgroundColor="#00ced1"
+            type="button"
+            disabled={values.username.length < 1}
+          >
             <S.Redirect to='/protest' disabled={values.username.length < 1}>
               Acesse o sistema
             </S.Redirect>
