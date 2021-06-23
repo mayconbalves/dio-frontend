@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import * as S from './styled'
 
 const Breadcrumb = () => {
@@ -12,10 +11,6 @@ const Breadcrumb = () => {
       </ul>
     </S.Container>
   )
-}
-
-Breadcrumb.propTypes = {
-  values: PropTypes.string.isRequired
 }
 
 export default Breadcrumb
