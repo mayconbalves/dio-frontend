@@ -13,7 +13,7 @@ const Protest = () => {
   const [values, setValues] = useState({ message: '' })
   const dispatch = useDispatch()
   const protests = useSelector(
-    (state) => state.protestsReducers.protests
+    (state) => state.protestsReducers.result
   )
 
   useEffect(() => {

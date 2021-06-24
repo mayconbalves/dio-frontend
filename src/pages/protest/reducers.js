@@ -8,7 +8,7 @@ import {
 const initialState = {
   error: null,
   loading: false,
-  protests: []
+  result: []
 }
 
 export default function protestReducer(state = initialState, action) {
@@ -19,7 +19,7 @@ export default function protestReducer(state = initialState, action) {
       ...state,
       error: null,
       loading: true,
-      protests: action.payload.data
+      result: action.payload.data.result
     }
   case GET_PROTEST_ERROR:
   case POST_PROTEST_ERROR:
@@ -27,7 +27,7 @@ export default function protestReducer(state = initialState, action) {
       ...state,
       error: action.payload,
       loading: true,
-      protests: []
+      result: []
     }
   default:
     return state
