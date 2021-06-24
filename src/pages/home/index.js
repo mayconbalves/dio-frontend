@@ -18,6 +18,13 @@ const Home = () => {
     })
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      handleSubmit()
+    }
+  }
+
   const handleSubmit = () => {
     localStorage.setItem('@DioEvent:username', values.username)
     history.push('/protest')
@@ -31,6 +38,7 @@ const Home = () => {
           <Input
             name="username"
             onChange={inputChange}
+            onKeyDown={handleKeyDown}
             placeholder="Nome de usuário"
             value={values.username}
           />

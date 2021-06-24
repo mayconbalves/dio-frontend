@@ -29,6 +29,18 @@ const Protest = () => {
     })
   }
 
+  const handleKeyDown = (e) => {
+    const { name, value } = e.target
+    const user = localStorage.getItem('@DioEvent:username')
+
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      setValues({ ...values, [name]: value })
+      dispatch(postProtest(user, values.message))
+      setValues({ message: '' })
+    }
+  }
+
   const submitForm = () => {
     const user = localStorage.getItem('@DioEvent:username')
     dispatch(postProtest(user, values.message))
@@ -45,6 +57,7 @@ const Protest = () => {
           <Input
             name="message"
             onChange={inputChange}
+            onKeyDown={handleKeyDown}
             placeholder="Enviar protesto"
             value={values.message}
           />
