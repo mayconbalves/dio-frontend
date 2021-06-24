@@ -2,7 +2,11 @@ import {
   POST_PROTEST_ERROR,
   POST_PROTEST_SUCCESS,
   GET_PROTEST_ERROR,
-  GET_PROTEST_SUCCESS
+  GET_PROTEST_SUCCESS,
+  LIKE_ERROR,
+  LIKE_SUCCESS,
+  DISLIKE_ERROR,
+  DISLIKE_SUCCESS
 } from './constants'
 
 import api from 'services/api'
@@ -46,4 +50,44 @@ export const fetchProtest = () => (dispatch) => {
   api.get('protest')
     .then((response) => dispatch(getProtestSuccess(response)))
     .catch((error) => dispatch(getProtestError(error)))
+}
+
+const likeError = (error) => {
+  return {
+    type: LIKE_ERROR,
+    payload: error
+  }
+}
+
+const likeSuccess = (data) => {
+  return {
+    type: LIKE_SUCCESS,
+    payload: data
+  }
+}
+
+export const likeAction = () => (dispatch) => {
+  api.put('/like/:id')
+    .then((response) => dispatch(likeSuccess(response)))
+    .catch((error) => dispatch(likeError(error)))
+}
+
+const dislikeError = (error) => {
+  return {
+    type: DISLIKE_ERROR,
+    payload: error
+  }
+}
+
+const dislikeSuccess = (data) => {
+  return {
+    type: DISLIKE_SUCCESS,
+    payload: data
+  }
+}
+
+export const dislikeAction = () => (dispatch) => {
+  api.put('/dislike/:id')
+    .then((response) => dispatch(dislikeSuccess(response)))
+    .catch((error) => dispatch(dislikeError(error)))
 }

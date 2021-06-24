@@ -2,7 +2,11 @@ import {
   POST_PROTEST_ERROR,
   POST_PROTEST_SUCCESS,
   GET_PROTEST_ERROR,
-  GET_PROTEST_SUCCESS
+  GET_PROTEST_SUCCESS,
+  LIKE_ERROR,
+  LIKE_SUCCESS,
+  DISLIKE_ERROR,
+  DISLIKE_SUCCESS
 } from './constants'
 
 const initialState = {
@@ -15,6 +19,8 @@ export default function protestReducer(state = initialState, action) {
   switch (action.type) {
   case GET_PROTEST_SUCCESS:
   case POST_PROTEST_SUCCESS:
+  case LIKE_SUCCESS:
+  case DISLIKE_SUCCESS:
     return {
       ...state,
       error: null,
@@ -23,6 +29,8 @@ export default function protestReducer(state = initialState, action) {
     }
   case GET_PROTEST_ERROR:
   case POST_PROTEST_ERROR:
+  case LIKE_ERROR:
+  case DISLIKE_ERROR:
     return {
       ...state,
       error: action.payload,
