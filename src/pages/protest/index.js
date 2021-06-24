@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from 'components/container'
 import Input from 'components/input'
 import Breadcrumb from 'components/breadcrumb'
 import Card from 'components/card'
 import Button from 'components/button'
 import * as S from './styled'
+import api from 'services/api'
 
 const Protest = () => {
   const [values, setValues] = useState({ protest: '' })
@@ -21,6 +22,18 @@ const Protest = () => {
   const submitForm = () => {
     console.log(values)
   }
+
+  useEffect(() => {
+    async function fetchDate() {
+      const response = await api.post('protest', {
+        user: 'nome do usario',
+        message: 'menssagem do protesto'
+      })
+      console.log(response)
+    }
+
+    fetchDate()
+  })
   return (
     <Container>
       <Breadcrumb />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Input from 'components/input'
 import Container from 'components/container'
 import Button from 'components/button'
@@ -6,6 +7,7 @@ import * as S from './styled'
 
 const Home = () => {
   const [values, setValues] = useState({ username: '' })
+  const history = useHistory()
 
   const inputChange = (e) => {
     const { name, value } = e.target
@@ -15,6 +17,12 @@ const Home = () => {
       [name]: value
     })
   }
+
+  const handleSubmit = () => {
+    localStorage.setItem('@DioEvent:username', values.username)
+    history.push('/protest')
+  }
+
   return (
     <Container>
       <S.Main>
@@ -30,10 +38,9 @@ const Home = () => {
             backgroundColor="#00ced1"
             type="button"
             disabled={values.username.length < 1}
+            onClick={handleSubmit}
           >
-            <S.Redirect to='/protest' disabled={values.username.length < 1}>
-              Acesse o sistema
-            </S.Redirect>
+            Acesse o sistema
           </Button>
         </S.Form>
       </S.Main>
