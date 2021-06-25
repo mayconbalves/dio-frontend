@@ -1,11 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import * as S from './styled'
 
-const Card = ({ like, dislike, user, message}) => {
-  const [likes, setLike] = useState(like)
-  const [dislikes, setDeslike] = useState(dislike)
+const Card = ({
+  likeAction,
+  id,
+  like,
+  dislikeAction,
+  dislike,
+  dispatch,
+  user,
+  message
+}) => {
 
+  const handleLike = (id) => {
+    dispatch(likeAction(id))
+  }
+
+  const handleDislike = (id) => {
+    dispatch(dislikeAction(id))
+  }
   return (
     <S.Container>
       <S.DescriptionContainer>
@@ -13,10 +27,10 @@ const Card = ({ like, dislike, user, message}) => {
         <S.Description>Mensagem: {message}</S.Description>
       </S.DescriptionContainer>
       <S.IconContainer>
-        <S.Like onClick={() => setLike(likes + 1)}/><S.Cont>{like}</S.Cont>
+        <S.Like onClick={() => handleLike(id)}/><S.Cont>{like}</S.Cont>
       </S.IconContainer>
       <S.IconContainer>
-        <S.Dislike onClick={() => setDeslike(dislikes + 1)}/>
+        <S.Dislike onClick={() => handleDislike(id)}/>
         <S.Cont>{dislike}</S.Cont>
       </S.IconContainer>
     </S.Container>
@@ -24,8 +38,12 @@ const Card = ({ like, dislike, user, message}) => {
 }
 
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
   like: PropTypes.number.isRequired,
+  likeAction: PropTypes.func.isRequired,
+  dislikeAction: PropTypes.func.isRequired,
   dislike: PropTypes.number.isRequired,
+  dispatch: PropTypes.func,
   user: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired
 }

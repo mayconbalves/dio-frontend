@@ -66,8 +66,8 @@ const likeSuccess = (data) => {
   }
 }
 
-export const likeAction = () => (dispatch) => {
-  api.put('/like/:id')
+export const likeAction = (id) => (dispatch) => {
+  api.put(`/protest/like/${id}`)
     .then((response) => dispatch(likeSuccess(response)))
     .catch((error) => dispatch(likeError(error)))
 }
@@ -86,8 +86,8 @@ const dislikeSuccess = (data) => {
   }
 }
 
-export const dislikeAction = () => (dispatch) => {
-  api.put('/dislike/:id')
+export const dislikeAction = (id) => (dispatch) => {
+  api.put(`/protest/dislike/${id}`)
     .then((response) => dispatch(dislikeSuccess(response)))
     .catch((error) => dispatch(dislikeError(error)))
 }

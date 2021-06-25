@@ -7,7 +7,7 @@ import Card from 'components/card'
 import Button from 'components/button'
 import * as S from './styled'
 
-import { postProtest, fetchProtest } from './actions'
+import { postProtest, fetchProtest, likeAction, dislikeAction } from './actions'
 
 const Protest = () => {
   const [values, setValues] = useState({ message: '' })
@@ -72,8 +72,12 @@ const Protest = () => {
         {
           allProtests.map(protest => (
             <Card
+              likeAction={likeAction}
               like={protest.like}
+              dislikeAction={dislikeAction}
               dislike={protest.dislike}
+              dispatch={dispatch}
+              id={protest.id}
               user={protest.user}
               key={protest.id}
               message={protest.message}
